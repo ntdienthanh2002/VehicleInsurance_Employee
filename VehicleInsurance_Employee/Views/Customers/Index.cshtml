@@ -1,0 +1,107 @@
+﻿@model IEnumerable<VehicleInsurance_Employee.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success">
+        <strong> @TempData["AlertMessage"]</strong>
+    </div>
+}
+
+<!-- Static Table Start -->
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+                            <h1>Customers</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                   data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                <thead>
+                                    <tr>
+                                        <th data-field="customerID">
+                                            @Html.DisplayNameFor(model => model.CustomerID)
+                                        </th>
+                                        <th data-field="username">
+                                            @Html.DisplayNameFor(model => model.Username)
+                                        </th>
+                                        <th data-field="customerName">
+                                            @Html.DisplayNameFor(model => model.CustomerName)
+                                        </th>
+                                        <th data-field="customerADD">
+                                            @Html.DisplayNameFor(model => model.CustomerADD)
+                                        </th>
+                                        <th data-field="customerPhoneNumber">
+                                            @Html.DisplayNameFor(model => model.CustomerPhoneNumber)
+                                        </th>
+                                        <th data-field="email">
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th data-field="citizenIdentityCard">
+                                            @Html.DisplayNameFor(model => model.CitizenIdentityCard)
+                                        </th>
+                                        <th data-field="status">
+                                            @Html.DisplayNameFor(model => model.Status)
+                                        </th>
+                                        <th data-field="action">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CustomerID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Username)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CustomerName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CustomerADD)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CustomerPhoneNumber)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CitizenIdentityCard)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Status)
+                                            </td>
+                                            <td>
+                                                <a title="Edit" href="@Url.Action("Edit", "Customers", new { id=item.CustomerID })" aria-expanded="false" class="btn btn-custon-rounded-four btn-primary">
+                                                    <span class="fa fa-edit" aria-hidden="true"></span>
+                                                </a>
+                                                <a title="View Vehicle" href="@Url.Action("Details", "Customers", new { id=item.CustomerID })" aria-expanded="false" class="btn btn-custon-rounded-four btn-info">
+                                                    <span class="fa fa-eye" aria-hidden="true"></span>
+                                                </a>
+                                                <a title="View Order Policy" href="@Url.Action("OrderViews", "Customers", new { id=item.CustomerID })" aria-expanded="false" class="btn btn-custon-rounded-four btn-danger">
+                                                    <span class="fa fa-eye" aria-hidden="true"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

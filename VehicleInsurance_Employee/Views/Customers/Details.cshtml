@@ -1,0 +1,147 @@
+﻿@model VehicleInsurance_Employee.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<!-- Single pro tab review Start-->
+<div class="single-pro-review-area mt-t-30 mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-payment-inner-st">
+                    <div id="myTabContent" class="tab-content custom-product-edit">
+                        <div class="product-tab-list tab-pane fade active in" id="description">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="pull-left">
+                                        <h1>Customer</h1>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a title="Back to list" href="@Url.Action("Index")" aria-expanded="false" class="btn btn-primary waves-effect waves-light">
+                                            <span class="fa fa-chevron-left" aria-hidden="true"></span>
+                                            Back
+                                        </a>
+                                    </div>
+                                    <div class="review-content-section">
+                                        <div id="dropzone1" class="pro-ad">
+                                            <br />
+                                            <hr />
+                                            @using (Html.BeginForm())
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                @Html.HiddenFor(model => model.CustomerID)
+                                                @Html.HiddenFor(model => model.Password)
+                                                <form action="#" class="dropzone dropzone-custom needsclick add-professors" id="demo1-upload">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                @Html.LabelFor(model => model.CustomerID, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                                @Html.EditorFor(model => model.CustomerID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                                @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.LabelFor(model => model.CustomerADD, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                                @Html.EditorFor(model => model.CustomerADD, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                                @Html.ValidationMessageFor(model => model.CustomerADD, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                @Html.LabelFor(model => model.CustomerPhoneNumber, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                                @Html.EditorFor(model => model.CustomerPhoneNumber, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                                @Html.ValidationMessageFor(model => model.CustomerPhoneNumber, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.LabelFor(model => model.CitizenIdentityCard, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                                @Html.EditorFor(model => model.CitizenIdentityCard, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                                @Html.ValidationMessageFor(model => model.CitizenIdentityCard, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="form-group">
+                                                                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-10" })
+                                                                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                                                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            }
+                                        </div>
+                                        <br /><br />
+                                        <h4>Customer's Vehicle Information</h4>
+                                        <hr />
+                                        <table class="table" border="1">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">
+                                                        Vehicle Owner Name
+                                                    </th>
+                                                    <th scope="col">
+                                                        Vehicle Type
+                                                    </th>
+                                                    <th scope="col">
+                                                        Vehicle Brand
+                                                    </th>
+                                                    <th scope="col">
+                                                        Vehicle Model
+                                                    </th>
+                                                    <th scope="col">
+                                                        Vehicle Body Number
+                                                    </th>
+                                                    <th scope="col">
+                                                        Vehicle Engine Number
+                                                    </th>
+                                                    <th scope="col">
+                                                        Vehicle Number
+                                                    </th>
+                                                    <th scope="col">
+                                                        Seat Number
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var d in ViewBag.Vehicle)
+                                                {
+                                                    if (d.CustomerID == ViewBag.Customers.CustomerID)
+                                                    {
+                                                <tr>
+                                                    <td>@d.VehicleOwnerName</td>
+                                                    <td>@Html.Action("VehicleType", new { id = d.VehicleTypeID })</td>
+                                                    <td>@Html.Action("VehicleBrand", new { id = d.VehicleModelID })</td>
+                                                    <td>@Html.Action("VehicleModels", new { id = d.VehicleModelID })</td>
+                                                    <td>@d.VehicleBodyNumber</td>
+                                                    <td>@d.VehicleEngineNumber</td>
+                                                    <td>@d.VehicleNumber</td>
+                                                    <td>@d.SeatNumber</td>
+                                                </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

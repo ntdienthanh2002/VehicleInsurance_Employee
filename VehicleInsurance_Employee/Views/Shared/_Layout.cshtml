@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/icon.png">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    @*<link rel="stylesheet" href="css/bootstrap.min.css">*@
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.css">
+    <link rel="stylesheet" href="~/Content/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/Content/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/Content/css/calendar/fullcalendar.print.min.css">
+    <!-- x-editor CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/editor/select2.css">
+    <link rel="stylesheet" href="~/Content/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="~/Content/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/Content/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="~/Content/css/data-table/bootstrap-editable.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+    <!-- modernizr JS
+        ============================================ -->
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!-- Start Left menu area -->
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <br />
+                @{
+                    var logo = "~\\img\\logo\\logoCUSC.png";
+                }
+                <a href="@Url.Action("Index", "Bills")"><img class="main-logo" src="@Url.Content(logo)" alt="" /></a>
+            </div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    @{
+                        if (Session["EmpID"] != null)
+                        {
+                            <ul class="metismenu" id="menu1">
+                                <li class="active">
+                                    <a title="Manage Bills" href="@Url.Action("Index", "Bills")" aria-expanded="false">
+                                        <span class="fa fa-dollar" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Bills</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Claims" href="@Url.Action("Index", "Claims")" aria-expanded="false">
+                                        <span class="fa fa-sticky-note" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Claims</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Coefficients" href="@Url.Action("Index", "Coefficients")" aria-expanded="false">
+                                        <span class="fa fa-th" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Coefficients</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Company Expenses" href="@Url.Action("Index", "CompanyExpenses")" aria-expanded="false">
+                                        <span class="fa fa-building" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Company Expenses</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Contacts" href="@Url.Action("Index", "Contacts")" aria-expanded="false">
+                                        <span class="fa fa-comment" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Contacts</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Customers" href="@Url.Action("Index", "Customers")" aria-expanded="false">
+                                        <span class="fa fa-users" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Customers</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Feedbacks" href="@Url.Action("Index", "Feedbacks")" aria-expanded="false">
+                                        <span class="fa fa-comments" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Feedbacks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Insurance Types" href="@Url.Action("Index", "InsuranceTypes")" aria-expanded="false">
+                                        <span class="fa fa-list" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Insurance Types</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Order Policies" href="@Url.Action("Index", "OrderPolicies")" aria-expanded="false">
+                                        <span class="fa fa-car" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Order Policies</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Vehicle Brands" href="@Url.Action("Index", "VehicleBrands")" aria-expanded="false">
+                                        <span class="fa fa-car" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Vehicle Brands</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Vehicle Models" href="@Url.Action("Index", "VehicleModels")" aria-expanded="false">
+                                        <span class="fa fa-car" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Vehicle Models</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Vehicles" href="@Url.Action("Index", "Vehicles")" aria-expanded="false">
+                                        <span class="fa fa-car" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Vehicles</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Manage Vehicle Types" href="@Url.Action("Index", "VehicleTypes")" aria-expanded="false">
+                                        <span class="fa fa-car" aria-hidden="true"></span>
+                                        <span class="mini-click-non">Manage Vehicle Types</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="has-arrow" aria-expanded="false">
+                                        <span class="fa fa-newspaper-o icon-wrap"></span>
+                                        <span class="mini-click-non">Generate Report</span>
+                                    </a>
+                                    <ul class="submenu-angle" aria-expanded="false">
+                                        <li>
+                                            <a title="Monthly sell of policies" href="@Url.Action("Report1", "Reports")">
+                                                <span class="mini-sub-pro">Monthly sell of policies</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Vehicle wise analysis" href="@Url.Action("Report2", "Reports")">
+                                                <span class="mini-sub-pro">Vehicle wise analysis</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Claims report" href="@Url.Action("Report3", "Reports")">
+                                                <span class="mini-sub-pro">Claims report</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Policies due renewals" href="@Url.Action("Report4", "Reports")">
+                                                <span class="mini-sub-pro">Policies due renewals</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Policies lapsed report" href="@Url.Action("Report5", "Reports")">
+                                                <span class="mini-sub-pro">Policies lapsed report</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        }
+                    }
+                </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="@Url.Action("Index", "Bills")">
+                            <img class="main-logo" src="@Url.Content(logo)" alt="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="educate-icon educate-nav"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <li class="nav-item">
+                                                    @{
+                                                        if (Session["EmpID"] != null)
+                                                        {
+                                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+
+                                                                <span class="admin-name">@Session["Username"]</span>
+                                                                <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+                                                            </a>
+                                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                                <li>
+                                                                    <a href="@Url.Action("UpdatePersonal", "Home", new { id=Session["EmpID"] })"><span class="edu-icon edu-home-admin author-log-ic"></span>Update Personal Information</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="@Url.Action("ChangePassword", "Home", new { id=Session["EmpID"] })"><span class="edu-icon edu-home-admin author-log-ic"></span>Change The Password</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="@Url.Action("Logout", "Home")"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                                </li>
+                                                            </ul>
+                                                        }
+                                                    }
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    @{
+                                        if (Session["EmpID"] != null)
+                                        {
+                                            <ul class="mobile-menu-nav">
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoBill" href="@Url.Action("Index", "Bills")">Manage Bills<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoClaim" href="@Url.Action("Index", "Claims")">Manage Claims<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoCoefficient" href="@Url.Action("Index", "Coefficients")">Manage Coefficients<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoCompanyExpense" href="@Url.Action("Index", "CompanyExpenses")">Manage Company Expenses<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoContact" href="@Url.Action("Index", "Contacts")">Manage Contacts<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoCustomer" href="@Url.Action("Index", "Customers")">Manage Customers<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoFeedback" href="@Url.Action("Index", "Feedbacks")">Manage Feedbacks<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoInsuranceType" href="@Url.Action("Index", "InsuranceTypes")">Manage Insurance Types<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoOrderPolicy" href="@Url.Action("Index", "OrderPolicies")">Manage Order Policies<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoVehicleBrand" href="@Url.Action("Index", "VehicleBrands")">Manage Vehicle Brands<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoVehicleModel" href="@Url.Action("Index", "VehicleModels")">Manage Vehicle Models<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoVehicle" href="@Url.Action("Index", "Vehicles")">Manage Vehicles<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoVehicleType" href="@Url.Action("Index", "VehicleTypes")">Manage Vehicle Types<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                </li>
+                                                <li>
+                                                    <a data-toggle="collapse" data-target="#demoReport" href="#">Generate Report<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                                    <ul id="demoReport" class="collapse dropdown-header-top">
+                                                        <li><a title="Monthly sell of policies" href="@Url.Action("Report1", "Reports")"><span class="mini-sub-pro">Monthly sell of policies</span></a></li>
+                                                        <li><a title="Vehicle wise analysis" href="@Url.Action("Report2", "Reports")"><span class="mini-sub-pro">Vehicle wise analysis</span></a></li>
+                                                        <li><a title="Claims report" href="@Url.Action("Report3", "Reports")"><span class="mini-sub-pro">Claims report</span></a></li>
+                                                        <li><a title="Policies due renewals" href="@Url.Action("Report4", "Reports")"><span class="mini-sub-pro">Policies due renewals</span></a></li>
+                                                        <li><a title="Policies lapsed report" href="@Url.Action("Report5", "Reports")"><span class="mini-sub-pro">Policies lapsed report</span></a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        }
+                                    }
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->
+
+        </div>
+        @RenderBody()
+        <hr />
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>CUSC © 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Welcome area -->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/Scripts/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/Scripts/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/Scripts/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/Scripts/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/Scripts/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/Scripts/js/jquery.scrollUp.min.js"></script>
+    <!-- counterup JS
+        ============================================ -->
+    <script src="~/Scripts/js/counterup/jquery.counterup.min.js"></script>
+    <script src="~/Scripts/js/counterup/waypoints.min.js"></script>
+    <script src="~/Scripts/js/counterup/counterup-active.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/Scripts/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Scripts/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/Scripts/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/Scripts/js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="~/Scripts/js/morrisjs/raphael-min.js"></script>
+    <script src="~/Scripts/js/morrisjs/morris.js"></script>
+    <script src="~/Scripts/js/morrisjs/morris-active.js"></script>
+    <!-- morrisjs JS
+        ============================================ -->
+    <script src="~/Scripts/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/Scripts/js/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="~/Scripts/js/sparkline/sparkline-active.js"></script>
+    <!-- calendar JS
+        ============================================ -->
+    <script src="~/Scripts/js/calendar/moment.min.js"></script>
+    <script src="~/Scripts/js/calendar/fullcalendar.min.js"></script>
+    <script src="~/Scripts/js/calendar/fullcalendar-active.js"></script>
+    <!-- data table JS
+        ============================================ -->
+    <script src="~/Scripts/js/data-table/bootstrap-table.js"></script>
+    <script src="~/Scripts/js/data-table/tableExport.js"></script>
+    <script src="~/Scripts/js/data-table/data-table-active.js"></script>
+    <script src="~/Scripts/js/data-table/bootstrap-table-editable.js"></script>
+    <script src="~/Scripts/js/data-table/bootstrap-editable.js"></script>
+    <script src="~/Scripts/js/data-table/bootstrap-table-resizable.js"></script>
+    <script src="~/Scripts/js/data-table/colResizable-1.5.source.js"></script>
+    <script src="~/Scripts/js/data-table/bootstrap-table-export.js"></script>
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/Scripts/js/editable/jquery.mockjax.js"></script>
+    <script src="~/Scripts/js/editable/mock-active.js"></script>
+    <script src="~/Scripts/js/editable/select2.js"></script>
+    <script src="~/Scripts/js/editable/moment.min.js"></script>
+    <script src="~/Scripts/js/editable/bootstrap-datetimepicker.js"></script>
+    <script src="~/Scripts/js/editable/bootstrap-editable.js"></script>
+    <script src="~/Scripts/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/Scripts/js/chart/jquery.peity.min.js"></script>
+    <script src="~/Scripts/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/Scripts/js/tab.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/Scripts/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/Scripts/js/main.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
